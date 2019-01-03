@@ -5,7 +5,8 @@
 <ul>
   {{#each burgers}}
     {{#unless devoured}}
-      {{> burgers/burger-block devoured=true}}
+    {{!-- {{> burgers/burger-block devoured=true}} --}}
+    {{burger_name}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -15,7 +16,8 @@
 <ul>
   {{#each burgers}}
     {{#if devoured}}
-      {{> burgers/burger-block devoured=false}}
+      {{!-- {{> burgers/burger-block devoured=false}} --}}
+       {{burger_name}}
     {{/if}}
   {{/each}}
 </ul>
@@ -36,3 +38,15 @@
 
   <button type="submit">Add Burger</button>
 </form>
+
+
+
+<li>
+	{{name}}
+
+	<button class="change-sleep" data-id="{{id}}" data-newsleep="{{sleep}}">
+		{{#if sleep}}EATING TIME TIME!{{else}}WAKE UP!{{/if}}
+	</button>
+
+	<button class="delete-burger" data-id="{{this.id}}">DELETE!</button>
+</li>
