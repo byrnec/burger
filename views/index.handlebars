@@ -1,57 +1,72 @@
-<h1>Burgers!</h1>
+<div class="main-container container-fluid">
 
-<h2>Burgers that are devoured!</h2>
+  <h1>Welcome to the Burger Bar!</h1>
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-        <li>
-	{{burger_name}}
+  <div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Where your burger dreams become reality!</h4>
+    <p><h2>Add a burger</h2>
+  <form class="create-form form-group form-text">
 
-	<button class="change-burger" data-id="{{id}}" data-newburger="true">
-		EAT THE BURGER!
-	</button>
+    <div class="form-group">
+      <label for="ca">Burger Name:</label>
+      <input type="text" id="new-burger" name="burger-name">
+    </div>
 
-</li>
-    {{/unless}}
-  {{/each}}
-</ul>
+    {{!-- <div class="form-group">
+      <label for="devoured">devoured?</label><br>
+      <input type="radio" name="devoured" value="1" checked> devoured!<br>
+      <input type="radio" name="devoured" value="0"> Eaten
+    </div> --}}
 
-<h2>Burgers that are not devoured!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      <li>
-	{{burger_name}}
-
-	<button class="change-burger" data-id="{{id}}" data-newburger="false">
-		MAKE THE BURGER!
-	</button>
-
-</li>
-
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="new-burger" name="burger-name">
+    <button class="btn btn-danger" id="submit-burger" type="submit">Add Burger</button>
+  </form>
+      <hr>
+      <p class="mb-0"></p>
   </div>
 
-  {{!-- <div class="form-group">
-    <label for="devoured">devoured?</label><br>
-    <input type="radio" name="devoured" value="1" checked> devoured!<br>
-    <input type="radio" name="devoured" value="0"> Eaten
-  </div> --}}
+  <div class="row">
+    <div class="container col-lg-6">
+      <h2>Burgers that are devoured!</h2>
 
-  <button id = "submit-burger" type="submit">Add Burger</button>
-</form>
+      <ul>
+        {{#each burgers}}
+        {{#unless devoured}}
+        <li>
+          {{burger_name}}
 
+          <button class="change-burger btn btn-danger " data-id="{{id}}" data-newburger="true">
+            DEVOUR THE BURGER!
+          </button>
 
+        </li>
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+ 
 
+    <div class="col-lg-6">
+      <h2>Burgers that are not devoured!</h2>
 
+      <ul>
+        {{#each burgers}}
+        {{#if devoured}}
+        <li>
+          {{burger_name}}
+
+          <button class="btn btn-danger change-burger " data-id="{{id}}" data-newburger="false">
+            MAKE THE BURGER!
+          </button>
+
+        </li>
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  
+
+  
+
+</div>
+</div>
+</div>
